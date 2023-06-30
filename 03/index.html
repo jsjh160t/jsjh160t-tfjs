@@ -9,10 +9,8 @@
   </head>
   <body>
     <!-- 自訂上傳按鈕 --> 
-    <h1>Upload Image to GitHub202306241700</h1>  
-    <input type="file" id="imageInput">
-    <button onclick="uploadImage()">上傳</button>
-    
+    <h1>Upload Image By FileReader 202306302155</h1>  
+    <input type='file' accept='image/*' onchange='uploadImage(event)'><br>
     <!-- 呈現影像類別結果 -->
     <h1>Prediction: </h1>
     <header id="prediction">

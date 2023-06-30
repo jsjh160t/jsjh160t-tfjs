@@ -1,22 +1,26 @@
   //const fileContent = 'BASE64_ENCODED_IMAGE_CONTENT'; // 圖片的Base64編碼內容
   //var url = "https://api.github.com/repos/jsjh160t/jsjh160t.github.io/contents/3/3.jpg?access_token=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",
   
-  function uploadImage() {
-      const accessToken = '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'; //YOUR_ACCESS_TOKEN
-      const owner = 'jsjh160t'; //YOUR_USERNAME
-      const repo = 'jsjh160t.github.io';  //YOUR_REPO
-      const path = '3/3.jpg'; // 上傳的圖片路徑
+ 
+  var  uploadImage = function(event) {
+      var input = event.target;
+      const file = input.files[0];
 
-      const imageInput = document.getElementById('imageInput');
-      const file = imageInput.files[0];
+
+      //const accessToken = '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'; //YOUR_ACCESS_TOKEN
+      //const owner = 'jsjh160t'; //YOUR_USERNAME
+      //const repo = 'jsjh160t.github.io';  //YOUR_REPO
+      //const path = '3/3.jpg'; // 上傳的圖片路徑      
+      
 
       if (file) {
         const reader = new FileReader();
         reader.onload = function(event) {
+          var dataURL = reader.result;
           const fileContent = event.target.result.split(',')[1]; // 取得Base64編碼的圖片內容
 
-          const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-
+          //const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+          /*
           const requestOptions = {
             method: 'PUT',
             headers: {
@@ -28,8 +32,8 @@
               content: fileContent
             })
           };
-
-          fetch(apiUrl, requestOptions)
+          */
+          fetch(dataURL)
             .then(response => response.json())
             .then(data => {
               console.log('Image uploaded:', data);
