@@ -15,9 +15,9 @@
 
       if (file) {
         const reader = new FileReader();
-        reader.onload = function(event) {
+        reader.onload = function() {
           var dataURL = reader.result;
-          const fileContent = event.target.result.split(',')[1]; // 取得Base64編碼的圖片內容
+          const fileContent = input.result.split(',')[1]; // 取得Base64編碼的圖片內容
 
           //const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
           /*
