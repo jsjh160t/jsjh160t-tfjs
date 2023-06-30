@@ -23,6 +23,9 @@
     // 宣告canvas 繪圖物件
     var ctx = canvas1.getContext('2d')
 
+    // 全局變數
+    var myImage;
+
     // 建立事件監聽器，當使用者選擇檔案時觸發
     document.getElementById('uploadBtn').addEventListener('change', handleUpload, false);
 
@@ -32,7 +35,7 @@
       const base64String = await convertToBase64(file); // 將檔案轉換成 Base64 編碼
 
       // 建立影像物件
-      var myImage = new Image();
+      myImage = new Image();
       myImage.src = base64String;
       myImage.addEventListener("load", loadImage, false);
     }
@@ -49,8 +52,8 @@
 
     // 觸發函式
     async function loadImage() {
-      await tf.ready();
       await tf.setBackend('webgl');
+      
       img_width = myImage.width;
       img_height = myImage.height;
 
