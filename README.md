@@ -1,17 +1,12 @@
-# jsjh160t.github.io
+# jsjh160t.github.io/jsjh160t-tfjs
 
-AI省電舒適空調：<br>
-Fuzzy控制：<br>
-(1)MOM去模糊化模式；<br>
-(2)SOM去模糊化模式。<br><br>
-
-1/啟動TF demo<br>
-2/Template Image Classification ：本地端範例(tiger.jpg) cat<br>
-3/Custom Image Classification  ：無法上傳檔案(20230624解決--自訂上傳按鈕)(分開html與js)<br>
-4/Template Image Object Detection ：本地端範例(od_sample4.jpg)<br>
-5/WebCam Image Object Detection  無法擷取影像(20230624解決--將google.colab那一行註解掉)<br>
-6/WebCam Video Object Detection<br>
-7/Template Image 人體姿態(靜態) ：本地端範例(pose_sample2)-firefox可以，chrome不行<br>
+01/啟動TF demo<br>
+02/Template Image Classification ：本地端範例(tiger.jpg) cat<br>
+03/Custom Image Classification  ：無法上傳檔案(20230624解決--自訂上傳按鈕)(分開html與js)<br>
+04/Template Image Object Detection ：本地端範例(od_sample4.jpg)<br>
+05/WebCam Image Object Detection  無法擷取影像(20230624解決--將google.colab那一行註解掉)<br>
+06/WebCam Video Object Detection<br>
+07/Template Image 人體姿態(靜態) ：本地端範例(pose_sample2)-firefox可以，chrome不行<br>
   (20230627增加以下指令，就可以在chrome正常執行。)<br>
   // 觸發函式<br>
   async function loadImage(e) {<br>
@@ -20,10 +15,10 @@ Fuzzy控制：<br>
      //方法2.等待 TensorFlow.js 初始化，確保後端已經設置好並且準備就緒。<br>
      //await tf.setBackend('webgl'); <br>   
         
-8/Custom Image 人體姿態(靜態) ：無法上傳檔案(20230624參考3.解決--自訂上傳按鈕)(分開html與js)<br>
+08/Custom Image 人體姿態(靜態) ：無法上傳檔案(20230624參考3.解決--自訂上傳按鈕)(分開html與js)<br>
   (20230627增加同上指令，就可以在chrome正常執行。)<br>
 
-9/WebCam Image 人體姿態(動態) ：無法擷取影像<br>
+09/WebCam Image 人體姿態(動態) ：無法擷取影像<br>
   (20230627增加以下指令，就可以在chrome正常執行。)<br>
   // webcam 攝影<br>
   async function takePhoto() {<br>
