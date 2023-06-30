@@ -1,26 +1,32 @@
   //const fileContent = 'BASE64_ENCODED_IMAGE_CONTENT'; // 圖片的Base64編碼內容
   //var url = "https://api.github.com/repos/jsjh160t/jsjh160t.github.io/contents/3/3.jpg?access_token=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",
   
- 
-  var  uploadImage = function(event) {
-      var input = event.target;
-      const file = input.files[0];
-
-
-      //const accessToken = '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'; //YOUR_ACCESS_TOKEN
-      //const owner = 'jsjh160t'; //YOUR_USERNAME
-      //const repo = 'jsjh160t.github.io';  //YOUR_REPO
-      //const path = '3/3.jpg'; // 上傳的圖片路徑      
-      
+  function uploadImage() {
+      /*
+      const accessToken = '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'; //YOUR_ACCESS_TOKEN
+      const owner = 'jsjh160t'; //YOUR_USERNAME
+      const repo = 'jsjh160t.github.io';  //YOUR_REPO
+      const path = '3/3.jpg'; // 上傳的圖片路徑
+      */
+      const imageInput = document.getElementById('imageInput');
+      const file = imageInput.files[0];
 
       if (file) {
         const reader = new FileReader();
-        reader.onload = function() {
-          var dataURL = reader.result;
-          const fileContent = input.result.split(',')[1]; // 取得Base64編碼的圖片內容
 
-          //const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+        // 轉換成 DataURL
+        reader.readAsDataURL(file)
+
+        reader.onload = function(event) {
+          const fileContent = event.target.result.split(',')[1]; // 取得Base64編碼的圖片內容
+          // 宣告js 影像物件
+          var myImage = new Image();
+          // 將圖片 src 替換為 DataURL
+          myImage.src = reader.result;
+
           /*
+          const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
           const requestOptions = {
             method: 'PUT',
             headers: {
@@ -33,7 +39,7 @@
             })
           };
           */
-          fetch(dataURL)
+          fetch('https://jsjh160t.github.io/jsjh160t-tfjs/')
             .then(response => response.json())
             .then(data => {
               console.log('Image uploaded:', data);
@@ -48,12 +54,11 @@
               let header2 = document.getElementById("prediction");
               let header4 = document.getElementById("score");
   
-              // 先告js 影像物件
-              var myImage = new Image();
+              // 宣告js 影像物件
+              //var myImage = new Image();
              
               // 指定上傳本地端影像路徑(URL)
               //myImage.src = URL.createObjectURL(file); 
-              myImage.src = dataURL;
               
               // 一旦成功載入影像，觸發執行loadImage函式
               myImage.addEventListener("load", loadImage, false);
@@ -89,7 +94,7 @@
             });
         };
 
-        reader.readAsDataURL(file);
+        //reader.readAsDataURL(file);
       }
     }
   
