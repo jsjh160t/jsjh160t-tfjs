@@ -48,6 +48,7 @@
 
     // 觸發函式
     async function loadImage(e) {
+      await tf.ready(); //等待~~確保 TensorFlow.js 在進行其他操作之前已經初始化。
       // 範例影像大小
       img_width = myImage.width;
       img_height = myImage.height;
