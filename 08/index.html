@@ -14,7 +14,7 @@
   </head>
   <body>
   <!-- 用於呈現分析結果canvas -->
-  <canvas id='canvas1'></canvas>
+  <canvas id="canvas1"></canvas>
   <input type="file" id="uploadBtn" accept="image/*">
 
     <script>
@@ -49,11 +49,7 @@
 
     // 觸發函式
     async function loadImage() {
-      //方法1.等待~~確保 TensorFlow.js 在進行其他操作之前已經初始化。
-      //await tf.ready();
-      //方法2.等待 TensorFlow.js 初始化，確保後端已經設置好並且準備就緒。
       await tf.setBackend('webgl');
-      
       img_width = myImage.width;
       img_height = myImage.height;
 
@@ -71,18 +67,18 @@
 
       keypoints = poses[0].keypoints
       for (var i = 0; i < keypoints.length; i++) {
-          console.log(keypoints[i]);
+        console.log(keypoints[i]);
 
-          x = keypoints[i].x
-          y = keypoints[i].y
+        x = keypoints[i].x
+        y = keypoints[i].y
 
-          name = keypoints[i].name
+        name = keypoints[i].name
 
-          ctx.beginPath();
-          ctx.arc(x, y, 20, 0, 2 * Math.PI);
-          ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(x, y, 20, 0, 2 * Math.PI);
+        ctx.stroke();
 
-          ctx.fillText(name, x+30, y);
+        ctx.fillText(name, x+30, y);
       }
     }
     </script>
